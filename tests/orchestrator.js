@@ -1,7 +1,7 @@
 import retry from "async-retry";
 
 const webserverUrl = "http://localhost:3000";
-async function  waitForAllServices() {
+async function waitForAllServices() {
   await waitForWebServer();
 
   async function waitForWebServer() {
@@ -12,7 +12,7 @@ async function  waitForAllServices() {
 
     async function fetchStatusPage() {
       const response = await fetch(`${webserverUrl}/api/v1/status`);
-      if(response.status !== 200){
+      if (response.status !== 200) {
         throw Error();
       }
     }
@@ -21,4 +21,4 @@ async function  waitForAllServices() {
 
 export default {
   waitForAllServices,
-}
+};
